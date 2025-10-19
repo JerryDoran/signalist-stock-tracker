@@ -1,4 +1,4 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Track real-time stock prices, get personalized alerts and explore detailed market and company insights.
 
 ## Getting Started
 
