@@ -1,0 +1,5 @@
+Javascript Mastery
+Youtube Url: https://www.youtube.com/watch?v=gu4pafNCXng&t=4527s
+
+  - creating a global.d.ts file to define types in my applicaton.  There is no need to have to
+    manually import this file into other components as it is recognized automatically
