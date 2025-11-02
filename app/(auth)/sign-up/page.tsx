@@ -1,6 +1,7 @@
 'use client';
 
 import CountrySelectField from '@/components/forms/country-select-field';
+import FooterLink from '@/components/forms/footer-link';
 import InputField from '@/components/forms/input-field';
 import SelectField from '@/components/forms/select-field';
 import { Button } from '@/components/ui/button';
@@ -131,6 +132,11 @@ export default function SignUpPage() {
             ? 'Creating Account...'
             : 'Start Your Investing Journey'}
         </Button>
+        <FooterLink
+          text='Already have an account?'
+          linkText='Sign In'
+          href='/sign-in'
+        />
       </form>
     </>
   );
