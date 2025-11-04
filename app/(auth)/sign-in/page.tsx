@@ -21,7 +21,6 @@ export default function SignInPage() {
 
   async function onSubmit(data: SignInFormData) {
     try {
-      console.log(data);
     } catch (error) {
       console.error('Error during sign-up:', error);
     }
@@ -34,6 +33,7 @@ export default function SignInPage() {
         <InputField
           name='email'
           label='Email'
+          type='email'
           placeholder='john.doe@example.com'
           register={register}
           error={errors.email}

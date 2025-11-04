@@ -16,7 +16,6 @@ export default function SignUpPage() {
   const {
     register,
     handleSubmit,
-    watch,
     control,
     formState: { errors, isSubmitting },
   } = useForm<SignUpFormData>({
@@ -34,7 +33,6 @@ export default function SignUpPage() {
 
   async function onSubmit(data: SignUpFormData) {
     try {
-      console.log(data);
     } catch (error) {
       console.error('Error during sign-up:', error);
     }
@@ -61,6 +59,7 @@ export default function SignUpPage() {
         <InputField
           name='email'
           label='Email'
+          type='email'
           placeholder='john.doe@example.com'
           register={register}
           error={errors.email}
