@@ -33,6 +33,7 @@ export default function SignUpPage() {
 
   async function onSubmit(data: SignUpFormData) {
     try {
+      
     } catch (error) {
       console.error('Error during sign-up:', error);
     }
