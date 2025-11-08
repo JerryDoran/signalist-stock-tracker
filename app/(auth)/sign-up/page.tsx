@@ -5,14 +5,18 @@ import FooterLink from '@/components/forms/footer-link';
 import InputField from '@/components/forms/input-field';
 import SelectField from '@/components/forms/select-field';
 import { Button } from '@/components/ui/button';
+import { signUpWithEmail } from '@/lib/actions/auth.actions';
 import {
   INVESTMENT_GOALS,
   PREFERRED_INDUSTRIES,
   RISK_TOLERANCE_OPTIONS,
 } from '@/lib/constants';
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 
 export default function SignUpPage() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -33,9 +37,16 @@ export default function SignUpPage() {
 
   async function onSubmit(data: SignUpFormData) {
     try {
-      
+      const result = await signUpWithEmail(data);
+      if (result.success) {
+        router.push('/');
+      }
     } catch (error) {
       console.error('Error during sign-up:', error);
+      toast.error('Sign up failed', {
+        description:
+          error instanceof Error ? error.message : 'Something went wrong',
+      });
     }
   }
 

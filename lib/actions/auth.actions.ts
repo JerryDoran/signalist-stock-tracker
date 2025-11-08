@@ -2,6 +2,7 @@
 
 import { auth } from '@/lib/better-auth/auth';
 import { inngest } from '@/lib/inngest/client';
+import { headers } from 'next/headers';
 
 export async function signUpWithEmail(data: SignUpFormData) {
   const {
@@ -36,6 +37,8 @@ export async function signUpWithEmail(data: SignUpFormData) {
       });
     }
 
+    console.log(data);
+
     return {
       success: true,
       data: response,
@@ -46,5 +49,17 @@ export async function signUpWithEmail(data: SignUpFormData) {
       success: false,
       error: 'An error occurred during sign-up.',
     };
+  }
+}
+
+export async function signOut() {
+  try {
+    await auth.api.signOut({
+      headers: await headers(),
+    });
+    return { success: true };
+  } catch (error) {
+    console.log('Sign out failed', error);
+    return { success: false, error: 'Sign out failed' };
   }
 }
