@@ -38,7 +38,12 @@ export default function SignUpPage() {
   async function onSubmit(data: SignUpFormData) {
     try {
       const result = await signUpWithEmail(data);
+      console.log(result);
+
       if (result.success) {
+        toast.success(
+          'Sign up successful.  A confirmation link has been sent to your email.'
+        );
         router.push('/');
       }
     } catch (error) {
